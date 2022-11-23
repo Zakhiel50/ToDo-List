@@ -51,10 +51,6 @@ body{
     border-bottom: 2px solid black;
 }
 
-.insertInput::placeholder {
-
-}
-
 .btnAddTask {
     text-transform: uppercase;
     height: 30px;
@@ -93,8 +89,6 @@ body{
     border-radius: 6px;
     background-color: rgb(109, 171, 221);
 }
-
-
 
 .containerBtn {
     display: flex;
@@ -141,9 +135,40 @@ border-radius: 6px;
     margin: 5px 0;
 }
 
+.emptySection {
+    width: 100px;
+    height: 100px;
+    margin-top: 100px;
+    text-align: center;
+    opacity: 0.5;
+}
+
+.emptyText {
+    font-size: 14px;
+    font-family: 'Rubik', sans-serif;
+    display: inline;
+    width: 100%;
+   
+}
+
+.emptyImg {
+    width: 100%;
+    height: 100%;
+}
+
 @media (min-width : 600px) {
     .window {
         width : 500px
+    }
+
+    .emptySection {
+        margin-top: 300px;
+        width: 200px;
+        height: 200px;
+    }
+
+    .emptyText {
+        font-size: 24px;
     }
 }
 

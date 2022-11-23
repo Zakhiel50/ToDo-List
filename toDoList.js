@@ -19,6 +19,8 @@ function addTask() {
   // Take a value of user on input
 
   if (insertInput.value != "") {
+    const emptySection = document.querySelector(".emptySection");
+    emptySection.remove();
     // create task copntainer
     taskToDo = document.createElement("div");
     taskToDo.classList.add("taskToDo");
