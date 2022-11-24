@@ -2,6 +2,7 @@ const btnAddTask = document.querySelector(".btnAddTask");
 const tasksContainer = document.querySelector(".sectionTask");
 const finish = document.querySelector(".finish");
 const insertInput = document.querySelector(".insertInput");
+const emptySection = document.querySelector(".emptySection");
 
 // if keypress Enter = press, also, click on btnAddTask
 insertInput.addEventListener("keypress", function (event) {
@@ -9,6 +10,8 @@ insertInput.addEventListener("keypress", function (event) {
     btnAddTask.click();
   }
 });
+
+// All EventListener
 btnAddTask.addEventListener("click", addTask);
 tasksContainer.addEventListener("click", deleteTask);
 tasksContainer.addEventListener("click", finishTask);
@@ -16,11 +19,13 @@ finish.addEventListener("click", deleteTask);
 finish.addEventListener("click", restoreTask);
 
 function addTask() {
-  // Take a value of user on input
-
-  if (insertInput.value != "") {
-    const emptySection = document.querySelector(".emptySection");
+  // if section empty is true, remove it
+  if (emptySection.classList == "emptySection") {
     emptySection.remove();
+  }
+
+  // If input is not empty, take a value
+  if (insertInput.value != "") {
     // create task copntainer
     taskToDo = document.createElement("div");
     taskToDo.classList.add("taskToDo");
