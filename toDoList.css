@@ -21,6 +21,8 @@ body{
 .title {
     text-transform: uppercase;
     padding-top: 40px;
+    font-family: 'Rubik', 'sans serif';
+    font-size: 5vw;
 }
 
 .window {
@@ -39,8 +41,10 @@ body{
     height: 15%;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     margin : 15px 0;
+    flex-direction: column;
+    height: 100px;
 }
 
 .insertInput {
@@ -49,6 +53,7 @@ body{
     padding-left: 10px;
     text-transform: capitalize;
     border-bottom: 2px solid black;
+    margin-bottom: 20px;
 }
 
 .btnAddTask {
@@ -156,19 +161,24 @@ border-radius: 6px;
     height: 100%;
 }
 
+
 @media (min-width : 600px) {
     .window {
         width : 500px
     }
 
     .emptySection {
-        margin-top: 300px;
+        margin-top: 100px;
         width: 200px;
         height: 200px;
     }
 
     .emptyText {
         font-size: 24px;
+    }
+
+    .title {
+        font-size: 34px;
     }
 }
 

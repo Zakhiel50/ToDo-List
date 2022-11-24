@@ -19,13 +19,12 @@ finish.addEventListener("click", deleteTask);
 finish.addEventListener("click", restoreTask);
 
 function addTask() {
-  // if section empty is true, remove it
-  if (emptySection.classList == "emptySection") {
-    emptySection.remove();
-  }
-
   // If input is not empty, take a value
   if (insertInput.value != "") {
+    // if section empty is true, remove it
+    if (emptySection.classList == "emptySection") {
+      emptySection.remove();
+    }
     // create task copntainer
     taskToDo = document.createElement("div");
     taskToDo.classList.add("taskToDo");
