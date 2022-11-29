@@ -3,6 +3,7 @@ const tasksContainer = document.querySelector(".sectionTask");
 const finish = document.querySelector(".finish");
 const insertInput = document.querySelector(".insertInput");
 const emptySection = document.querySelector(".emptySection");
+let count = 0;
 
 // if keypress Enter = press, also, click on btnAddTask
 insertInput.addEventListener("keypress", function (event) {
@@ -22,10 +23,9 @@ function addTask() {
   // If input is not empty, take a value
   if (insertInput.value != "") {
     // if section empty is true, remove it
-    if (emptySection.classList == "emptySection") {
-      emptySection.remove();
-    }
-    // create task copntainer
+    countEmpty();
+
+    // create task container
     taskToDo = document.createElement("div");
     taskToDo.classList.add("taskToDo");
 
@@ -68,8 +68,13 @@ function deleteTask(e, item) {
   // onclick, if classList is btnTrash, remove task
   if (item.classList[0] === "btnTrash") {
     const todo = item.parentElement; // containerBtn
-    const removeToDo = todo.parentElement; // log: TaskToDo
-    removeToDo.remove(); // remove a task
+    const removeToDo = todo.parentElement.remove(); // log: TaskToDo // remove a task
+    count--;
+  }
+  if (count === 0) {
+    // if count vale is 0, remove class "removeEmptySection" and add class "emptySection" to emptySection
+    emptySection.classList.remove("removeEmptySection");
+    emptySection.classList.add("emptySection");
   }
 }
 
@@ -95,6 +100,18 @@ function restoreTask(e, item) {
   if (item.classList[0] === "btnFinish") {
     todo = item.parentElement;
     todo.parentElement.classList.remove("taskFinish");
-    restoreToDo = tasksContainer.appendChild(todo.parentElement);
+    restoreToDo = tasksContainer.appendChild(todo.parentElement); // move task in div finish
+  }
+}
+
+function countEmpty() {
+  if (emptySection.classList[0] === "emptySection") {
+    // if emptySection have class "emptySection"
+    emptySection.classList.remove("emptySection"); // remove it
+    emptySection.classList.add("removeEmptySection"); // and replace it by class "removeEmptySection"
+    count++; // add +1 to count
+  } else {
+    // else just add +1 to count
+    count++;
   }
 }
